@@ -30,8 +30,12 @@ public class Client
                         String serverOutput = graphPool.addEdge(cmd[1], Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3]));
                         System.out.println("[SERVER]: " + serverOutput);
                     }
+                    else if(cmd[0].equals("shortest_distance") && cmd.length == 4){
+                        String serverOutput = graphPool.shortestDistance(cmd[1], Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3]));
+                        System.out.println("[SERVER]: " + serverOutput);
+                    }
                     else
-                        System.out.println("Invalid command format");
+                        System.out.println("[CLIENT]: Invalid command format");
                 }
             }
             catch(Exception e){
