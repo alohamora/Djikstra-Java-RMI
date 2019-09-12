@@ -8,7 +8,7 @@ public class Graph{
     Graph(int max){
         maxNodes = max;
         graph = new ArrayList<LinkedList<Integer>>();
-        for(int i=1;i<=maxNodes;i++)
+        for(int i=0;i<=maxNodes;i++)
             graph.add(new LinkedList<Integer>());
     }
     public void addEdge(int node1, int node2){
@@ -37,6 +37,20 @@ public class Graph{
                     visited[n] = visited[s] + 1;
                     queue.add(n);
                 }
+            }
+        }
+        return ret;
+    }
+    public String getGraph(){
+        String ret = "";
+        for(int i=1;i<=maxNodes;i++){
+            if(!graph.get(i).isEmpty()){
+                String arr = "[ ";
+                Iterator<Integer> t = graph.get(i).listIterator(); 
+                while (t.hasNext())
+                    arr += Integer.toString(t.next());
+                arr += " ]";
+                ret += i + " --> " + arr + "\n";
             }
         }
         return ret;

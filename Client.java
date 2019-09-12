@@ -34,6 +34,10 @@ public class Client
                         String serverOutput = graphPool.shortestDistance(cmd[1], Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3]));
                         System.out.println("[SERVER]: " + serverOutput);
                     }
+                    else if(cmd[0].equals("get_graph") && cmd.length == 2){
+                        System.out.println("[SERVER]:");
+                        System.out.println(graphPool.getGraph(cmd[1]));
+                    }
                     else
                         System.out.println("[CLIENT]: Invalid command format");
                 }
